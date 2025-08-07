@@ -16,6 +16,7 @@ class Command(BaseCommand):
     help = "compile snake versions"
 
     def __init__(self):
+        super().__init__()
         self.cleanup_re = re.compile(r"([^a-z0-9+_-]+)", re.IGNORECASE)
 
     def handle(self, *args, **options):
