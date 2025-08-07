@@ -18,5 +18,15 @@
       "file_extension": "rs",
       "editor_mode": "rust"
       }
+  },
+  {
+    "model": "core.ProgrammingLanguage",
+    "pk": 3,
+    "fields": {
+      "slug": "python",
+      "readable_name": "Python",
+      "file_extension": "py",
+      "editor_mode": "python"
+      }
   }
 ]
