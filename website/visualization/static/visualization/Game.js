@@ -66,6 +66,8 @@ Game.prototype.ConnectWebsocket = function()
 
 Game.prototype.GetWebsocketURL = function()
 {
+    // uncomment if using without reverse-proxy
+    // return 'ws://localhost:9009/websocket';
     return (window.location.protocol == "https:" ? "wss://" : "ws://") + window.location.host + "/websocket";
 };
 
