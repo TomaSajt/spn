@@ -122,7 +122,7 @@ class ServerCommand(models.Model):
     dt_created = models.DateTimeField(auto_now_add=True, blank=True)
     dt_processed = models.DateTimeField(null=True, blank=True, editable=False)
     command = models.CharField(max_length=255, choices=COMMAND_CHOICES)
-    result = models.NullBooleanField(editable=False)
+    result = models.BooleanField(editable=False, null=True)
     result_msg = models.TextField(blank=True, null=True, editable=False)
 
 

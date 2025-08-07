@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='servercommand',
             name='result',
-            field=models.NullBooleanField(editable=False),
+            field=models.BooleanField(editable=False, null=True),
         ),
         migrations.AlterField(
             model_name='servercommand',

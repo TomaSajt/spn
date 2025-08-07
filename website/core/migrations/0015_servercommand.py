@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('dt', models.DateTimeField(auto_now_add=True)),
                 ('command', models.CharField(max_length=255)),
-                ('result', models.NullBooleanField()),
+                ('result', models.BooleanField(null=True)),
                 ('result_msg', models.TextField(blank=True, null=True)),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
