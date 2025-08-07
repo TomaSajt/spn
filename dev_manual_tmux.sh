@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 tmux new-session -d -s spn -n gameserver -c gameserver
 tmux new-window -n relayserver -c relayserver

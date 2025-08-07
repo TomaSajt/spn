@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 TARGET_DIR="../../website/docs/static/docs"
 

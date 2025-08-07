@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 for d in spn_*_base
 do

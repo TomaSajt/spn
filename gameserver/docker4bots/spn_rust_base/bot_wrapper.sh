@@ -1,4 +1,5 @@
-#!/bin/sh -e
+#!/usr/bin/env sh
+set -e
 
 action="$1"
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 zypper install --no-recommends \
 	gcc-c++ \

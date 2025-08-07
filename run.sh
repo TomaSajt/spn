@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 #gameserver/docker4bots/00_setup_shm_for_test.sh
 tmux new-session -d -s spn -n gameserver ./helper_scripts/run_gameserver.sh
