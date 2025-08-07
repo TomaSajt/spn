@@ -1,0 +1,227 @@
+#snake {
+    display:none;
+}
+
+#ide {
+    display:grid;
+
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 0fr 4fr 1fr;
+    grid-template-areas:
+        "tools sidebar"
+        "editor sidebar"
+        "logviews sidebar"
+        "logviews sidebar"
+        "logtabs sidebartabs";
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+#editor {
+    grid-area: editor;
+    font-size:18px;
+    background-color: #00000080;
+}
+
+#sidebar {
+    grid-area: sidebar;
+    padding-left:4px;
+    background-color: #000000A0;
+    overflow:hidden;
+}
+
+#sidebartabs {
+    grid-area: sidebartabs;
+    overflow:hidden;
+}
+
+#preview {
+    height:100%;
+}
+
+#logtabs {
+    grid-area: logtabs;
+    overflow:hidden;
+}
+
+#logviews {
+    grid-area: logviews;
+    padding-top:4px;
+}
+
+#logviews>div {
+    background-color: #00000080;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 11pt;
+    overflow: scroll;
+    height: 100%;
+}
+
+#log div div {
+    display:inline-block;
+    width:140px;
+    text-align:right;
+}
+
+#log div pre {
+    display:inline;
+    padding-left:10px;
+}
+
+#build_log div {
+	white-space: pre-wrap;
+}
+
+#build_log .err {
+    color:red;
+}
+
+#build_log .info {
+    color:yellow;
+    font-style:italic;
+}
+
+#tools {
+    grid-area: tools;
+}
+
+button, .button {
+    color:white;
+    border: 1px solid #ccc;
+    background-color: #7e580e;
+    border-radius:1em;
+    margin:5px 5px;
+    padding:3px 10px;
+    font-size:14pt;
+    text-decoration: none;
+}
+
+select {
+    color:white;
+    border: 1px solid #ccc;
+    background-color: #465c13;
+    border-radius:1em;
+    margin:5px 5px;
+    padding:3px 10px;
+    font-size:14pt;
+    text-decoration: none;
+}
+
+.button:hover {
+    text-decoration: none;
+}
+
+#hexdump {
+    font-size:11pt;
+    height:100%;
+    overflow:scroll;
+}
+
+#editor .ace_gutter {
+    background-color: #FFFFFF20;
+}
+
+#editor .ace_scroller {
+    background-color: transparent;
+}
+
+#editor .ace_active-line {
+    background: #FFFFFF10;
+}
+
+div.modal {
+    display:none;
+    position:fixed;
+    left:0; top:0; width:100%;height:100%;
+    background-color:rgba(0,0,0,0.5);
+    z-index:1000;
+}
+
+div.modal>div {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #321700;
+    border:2px solid #613600;
+    font-size:14pt;
+    color:white;
+    width: 20em;
+    height:10em;
+}
+
+div.modal>div>header {
+    background-color: #613600;
+    text-align:center;
+}
+
+div.modal div.main {
+    overflow: scroll;
+    position: absolute;
+    top: 1.2em; bottom: 1.5em;
+    left: 4px; right: 4px;
+    overflow-y:auto;
+}
+
+div.modal>div>footer {
+    position:fixed;
+    bottom:0; left:0; width:100%;
+    background-color: #613600;
+    text-align:right;
+}
+
+#load_dialog {
+    width:40em;
+    height:20em;
+}
+
+#load_dialog .list>div {
+    display:flex;
+    flex-direction: row;
+    font-family:"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size:10pt;
+    cursor:pointer;
+}
+
+#load_dialog .list>div.selected, #load_dialog .list>div:nth-child(even).selected {
+    background-color:rgba(0,0,0,0.5);
+}
+
+#load_dialog .list>div>div {
+    overflow:hidden;
+    padding:2px;
+}
+
+#load_dialog .list>div:nth-child(even) {
+    background-color:rgba(255,255,255,0.05);
+}
+
+#load_dialog .list>div>div:nth-child(1)
+{
+    width:3em; text-align: right;
+}
+
+#load_dialog .list>div>div:nth-child(2)
+{
+    width:15em; text-align: center;
+}
+
+#load_dialog .list>div>div:nth-child(3)
+{
+    width:6em; text-align: left;
+}
+
+#load_dialog .list>div>div:nth-child(4)
+{
+    width:400px; text-align: left;
+}
+
+/* safari hack against grid layout bugs */
+/* https://stackoverflow.com/questions/16348489 */
+@media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+        #ide {
+            height: 87vh;
+            width: 98vw;
+        }
+    }
+}

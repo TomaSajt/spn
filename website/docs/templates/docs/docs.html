@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block earlycss %}
+    <link rel="stylesheet" type="text/css" href="{% static "docs/github-markdown.css" %}" />
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static "core/highlight.js/styles/agate.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "docs/docs.css" %}" />
+{% endblock %}
+
+{% block js%}
+    <script src="{% static "core/highlight.js/highlight.pack.js" %}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}
+
+{% block content %}
+
+<div class="docs_container markdown-body">
+
+
+<h1>Bot Documentation</h1>
+
+<div id="docs_content">
+
+<p>Here you can find information about the Bot Frameworks.</p>
+<p>For <strong>C++</strong> we have some <a href="{% static "docs/cpp/index.html" %}">Doxygen documentation</a>.</p>
+<p>For <strong>Rust</strong> you can browse <a href="{% static "docs/rust/spn_rust_bot/index.html" %}">RustDoc</a>.</p>
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+</div> <!-- id="container" -->
+
+{% endblock %}

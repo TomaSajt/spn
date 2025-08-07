@@ -1,0 +1,76 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <h1>Schlangenprogrammiernacht 2020 – Impressum und Datenschutz</h1>
+
+  <h2>A note for english-speaking users</h2>
+
+  <p>As this server (and all the back-end) is hosted in Germany and writing it is easier for me, this part is in German. However, these are the most important points summarized:</p>
+
+  <ul>
+	<li>No data is loaded from or will be given to third parties.
+	<li>Cookies are only used to enable the login on this site. No third-party cookies are set.
+	<li>Highscores may be published after the Remote Chaos Experience.
+	<li>All data (especially uploaded bot code) will be deleted after the Remote Chaos Experience.
+	<li>Server logs will be deleted after 7 days (max.).
+  </ul>
+
+  <p>If you have any issues regarding privacy, please send an E-Mail to m-spn AT tkolb.de (replace the AT by the @ character!).
+
+  <h2>Impressum</h2>
+
+  <p>Diese Seite wird betrieben von:</p>
+  <p>
+	Thomas Kolb<br/>
+	Johanniterstraße 8<br/>
+	85051 Ingolstadt
+  </p>
+  <p>
+	E-Mail-Adresse: m-spn AT tkolb.de (das AT ist durch @ zu ersetzen!)
+  </p>
+
+  <h2>Datenschutz</h2>
+
+  <h3>Verantwortlich</h3>
+
+  <p>Verantwortlich im Sinne der DSGVO ist der oben genannte Betreiber (Thomas Kolb).<p>
+
+  <h3>Cookies</h3>
+
+  <p>Diese Seite verwendet Cookies, um Informationen zur Sitzung (Login) und zur Skriptsicherheit zu verwalten. Cookies von Drittanbietern werden nicht gesetzt.</p>
+
+  <p>Es werden keine Daten von Drittanbietern nachgeladen.</p>
+
+  <p>Cookies können jederzeit vom Benutzer in seinem Browser gelöscht werden.</p>
+
+  <h3>Server-Logs</h3>
+
+  <p>Der Server legt eine Logdatei über die Zugriffe an. Diese wird verwendet, um ungewöhnliche Vorgänge nachvollziehen und so die Verfügbarkeit der Seite sicherstellen zu können. Gespeichert werden folgende Informationen:</p>
+  <ul>
+	  <li>Anfragende IP-Adresse
+    	  <li>Datum und Zeit der Anfrage
+    	  <li>Angefragte Seite
+    	  <li>Technische Informationen zur Anfrage (HTTP-Protokollversion, HTTP-Methode)
+    	  <li>Antwortcode
+    	  <li>Größe der Antwort
+    	  <li>Referer (die Adresse, die auf die angefragte Seite verweist)
+    	  <li>User-Agent des Clients
+  </ul>
+
+  <p>Die Logdatei wird nach spätestens 7 Tagen automatisch gelöscht.</p>
+
+  <h3>Daten im Login-Bereich</h3>
+
+  <p>Zur Teilnahme am Spiel muss der Spieler einen Account anlegen. Dabei ist ein Spielername und ein Passwort anzugeben. Weitere Daten werden nicht erhoben.</p>
+
+  <p>Die Passwörter werden gesichert in einer Datenbank gespeichert. Eine Rekonstruktion der Klartextpasswörter ist nicht möglich.</p>
+
+  <p>Der Spielername wird zur Identifikation des Spielers verwendet und daher anderen Spielern in der Spielvisualisierung und den <a href="{% url 'highscore' %}">Highscore-Listen</a> angezeigt.</p>
+
+  <p>Der Betreiber behält sich vor, nach der Remote Chaos Experience (rC3) die finalen Highscore-Listen zu veröffentlichen. Diese enthalten den Namen des Accounts sowie eine Punktzahl, die von verschiedenen Kriterien abhängen kann. Sollte dies nicht gewünscht sein, kann unter der oben genannten Adresse (vorzugsweise per E-Mail) widersprochen werden. Der Account wird dann aus der Highscore-Liste entfernt.</p>
+
+  <p>Sämtliche anderen vom Spieler bereitgestellten Daten (insbesondere der Quelltext seines Bots) werden nach der rC3 gelöscht. Sie werden keinesfalls an andere Benutzer oder Dritte weitergegeben.</p>
+
+{% endblock %}

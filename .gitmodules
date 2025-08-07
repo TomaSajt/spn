@@ -1,9 +1,18 @@
-[submodule "relayserver"]
-	path = relayserver
-	url = https://github.com/schlangenprogrammiernacht/relayserver.git
-[submodule "website"]
-	path = website
-	url = https://github.com/schlangenprogrammiernacht/website.git
-[submodule "gameserver"]
-	path = gameserver
-	url = https://github.com/schlangenprogrammiernacht/gameserver.git
+[submodule "relayserver/lib/uWebSockets"]
+	path = relayserver/lib/uWebSockets
+	url = https://github.com/schlangenprogrammiernacht/uWebSockets
+[submodule "relayserver/lib/TcpServer"]
+	path = relayserver/lib/TcpServer
+	url = https://github.com/schlangenprogrammiernacht/TcpServer
+[submodule "gameserver/lib/TcpServer"]
+	path = gameserver/lib/TcpServer
+	url = https://github.com/schlangenprogrammiernacht/TcpServer
+[submodule "relayserver/lib/msgpack-c"]
+	path = relayserver/lib/msgpack-c
+	url = https://github.com/msgpack/msgpack-c/
+[submodule "relayserver/lib/nlohmann"]
+	path = relayserver/lib/nlohmann
+	url = https://github.com/nlohmann/json
+[submodule "gameserver/lib/msgpack-c"]
+	path = gameserver/lib/msgpack-c
+	url = https://github.com/msgpack/msgpack-c/

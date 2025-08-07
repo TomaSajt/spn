@@ -1,0 +1,103 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block css %}
+  <style>
+    body { overflow:none; }
+    #stage { position:absolute; left:0; top:0; width:100%; height:100%; overflow:hidden; }
+    #tvlogo { position:absolute; left:25px; top:25px; opacity:0.7; }
+    #url {
+      position:absolute;
+      bottom:5px; left:0; right:0;
+      text-align:center;
+    }
+    #url span {
+      font-size:36pt;
+      background-color:rgba(0,0,0,0.7);
+      border-radius: 0.5em 0.5em 0 0;
+      padding: 0.1em 0.5em;
+    }
+
+    #gameEvents {
+      position: absolute;
+      bottom: 5em;
+      right: 0;
+      background-color: rgba(0,0,0,0.5);
+      font-size: 18px;
+      text-align:right;
+      padding:10px;
+    }
+
+    body { background:black; }
+    #background_2 { display:none; }
+    #snake { display:none; }
+
+  </style>
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+  <div id="stage"></div>
+  <img id="tvlogo" src="{% static "visualization/assets/bytewerk_tv_150w_2.png" %}">
+  <div id="url">
+    <span>https://schlangen.bytewerk.org/</span><br>
+    <span>https://github.com/schlangenprogrammiernacht/</span>
+  </div>
+  <div id="gameEvents"></div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{%  block js %}
+  {% include "visualization/js.html" %}
+
+  <script>
+    let game = new Game(assets, strategy, document.getElementById('stage'), function() {
+        game.Run();
+    });
+
+    window.onresize = function()
+    {
+        game.vis.Resize();
+    };
+
+    game.AddGameEventHandler(function(className, msg) {
+        console.log(msg);
+        let logDiv = $("#gameEvents");
+        while ($("#gameEvents").children().length >= 10)
+        {
+            $("#gameEvents").children().first().remove();
+        }
+        $("<div></div>").addClass(className).text(msg).appendTo(logDiv);
+    }, this);
+
+    /*
+    let currentView = 0;
+    window.setInterval(function() {
+        currentView = (currentView + 1) % 10;
+        if (currentView==0)
+        {
+            game.vis.Unfollow();
+            let vp = game.vis.viewport;
+            let scale = vp._screenWidth / game.vis.world_size_x;
+            vp.scale.x = scale;
+            vp.scale.y = scale;
+            vp.position.set(0, 0);
+        }
+        else if (currentView>4)
+        {
+            let index = currentView-4;
+            if (game.stats && (game.stats.length > index))
+            {
+                let snake_id = game.stats[index].id;
+                let snake = game.vis.GetSnake(snake_id);
+                game.vis.FollowName(snake.GetName(), true);
+            }
+        }
+    }, 5000);
+    */
+  </script>
+{% endblock %}

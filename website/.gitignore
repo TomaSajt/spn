@@ -1,0 +1,10 @@
+__pycache__
+.idea
+venv
+env
+db.sqlite3
+Programmierspiel/local_settings.py
+.vscode/tags
+.history
+
+docs/static/docs/*/

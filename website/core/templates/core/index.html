@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <h1>Schlangenprogrammiernacht for GPN20</h1>
+
+  <!--p style="background-color: #022000; font-size: 1.2em; border: 0.2em solid #2a0; padding: 0.2em"><strong>Please note:</strong><br>As the rC3 world and related services will be available until 2022-01-01, this server will also be available until then.<br>The highscores for the rC3 have been recorded at 2021-12-30 23:59 CET (22:59 UTC) and will be published after this server goes offline.<br>Current highscores on this site show the last 24 hours of gameplay.<br>Have fun!</p>
+  <p style="background-color: #200800; font-size: 1.2em; border: 0.2em solid #a40; padding: 0.2em"><strong>⚠️ Important!</strong><br>When this server shuts down, all user content will be deleted! Make sure you have a backup of your code.</p-->
+  <p style="background-color: #200800; font-size: 1.2em; border: 0.2em solid #a40; padding: 0.2em"><strong>⚠️ Important!</strong><br>This is a test server. All code can be erased at any time, and will be erased for sure just before the GPN20. If you care about your code keep a backup somewhere else!</p>
+
+  <h2>About the Game</h2>
+  <p>
+    Welcome to the 'Schlangenprogrammiernacht', a programming game initially developed for <a href="https://entropia.de/GPN19">GPN19</a>. This is the „official“ server for the GPN20.
+  </p>
+
+  <p>Program your own snake’s behaviour, eat as much as you can and try not to die. Remember: always keep a healthy distance to other snakes!</p>
+
+  <p>Everybody is invited to join! Simply <a href="{% url 'signup' %}">create an account</a> and start coding.</p>
+
+  <p>If you never played SPN before, you may want to watch the <a href="https://media.ccc.de/v/gpn18-153-einfhrung-schlangenprogrammiernacht-2018">Introduction Talk at GPN18</a> and the <a href="https://media.ccc.de/v/gpn19-70-schlangenprogrammiernacht-2-0">presentation of version 2 at GPN19</a> (both in German).
+
+  <h2>About this Server</h2>
+
+  <p>This game is running on a Raspberry Pi 4 with 4 GB RAM. The CPU clock is fixed to the maximum frequency (1.5 GHz) for consistent timing.</p>
+
+  <p>Head over to the <a href="https://stats.tkolb.de/grafana/d/Bv5ZRWMWz/">Grafana Dashboard</a> for gameserver statistics.</p>
+
+  <h2>Get the Code!</h2>
+
+  <p>The SPN server is Free Software! Get the code <a href="https://github.com/schlangenprogrammiernacht/spn-meta">here</a>.</p>
+
+  <h2>Contact us</h2>
+
+  <p>If you have a question or just want to talk to us, join our <a href="xmpp:spn@conference.bytewerk.org?join">XMPP Group Chat <em>spn@conference.bytewerk.org</em></a> or the <a href="ircs://irc.hackint.eu:9999/#spn">#spn IRC channel on HackInt</a>.</p>
+
+  <h2>What’s new?</h2>
+
+  <p>Most important new feature: the game can now be played in <em>different programming languages</em>! So far, we have frameworks for <strong>C++</strong> and <strong>Rust</strong>!
+
+  <p>Otherwise, we are using the same parameters as on the rC3 2021:</p>
+
+  <ul>
+    <li>Very few „static“ food items.
+    <li>Food decays very slowly.
+    <li>Boosting is very effective (3x speed), but also quite expensive (3 ‰ mass per frame).
+  </ul>
+
+  <p>Enjoy!</p>
+
+  <h2>Changelog for this instance</h2>
+
+  <dl>
+    <dt>2022-05-[&lt;19]</dt>
+      <dd>Beta testing, setup, server config, etc.</dd>
+  </dl>
+ 
+{% endblock %}

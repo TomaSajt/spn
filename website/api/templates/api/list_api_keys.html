@@ -1,0 +1,75 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block css %}
+  <style>
+  table.api_keys td, table.api_keys th {
+    text-align: left;
+    padding: 0 1em;
+  }
+  table.api_keys td, table.api_keys th
+  {
+    background-color:rgba(0,0,0,0.2);
+  }
+
+  table.api_keys input {
+    width:100%;
+  }
+
+  table.api_keys button, #bt_create_api_key {
+    color:white;
+    border: 2px solid #b28e27;
+    background-color: #b28e27;
+    border-radius:1em;
+    padding:5px;
+  }
+
+  </style>
+{% endblock %}
+
+{% block content %}
+  <h1>API Keys</h1>
+  <div style="margin-bottom:1em;margin-left:1em">
+  Use these API keys either as a ?token=12345678-... GET parameter<br>
+    or as content of a HTTP_AUTHORIZATION HTTP header<br>
+    to access the REST API the same way your browser does.
+  </div>
+{% if user.apikey_set.all %}
+  <table class="api_keys">
+    <thead>
+      <tr>
+        <th style="min-width:10em">API Key</th>
+        <th style="min-width:10em">Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+{% for key in user.apikey_set.all %}
+    <form action="{% url "api_key_delete" key_id=key.id %}" method="post">
+      {% csrf_token %}
+      <tr>
+        <td>{{ key.key }}</td>
+        <td>{{ key.comment }}</td>
+        <td><button type="submit">Revoke</button></td>
+      </tr>
+    </form>
+{% endfor %}
+{% if user.apikey_set.all.count < max_keys %}
+<form action="{% url "api_key_create" %}" method="post">
+  {% csrf_token %}
+      <tr>
+        <td colspan="2"><input name="comment" placeholder="Description"></td>
+        <td><button type="submit">Create</button></td>
+      </tr>
+</form>
+{% endif %}
+    </tbody>
+  </table>
+{% else %}
+<form action="{% url "api_key_create" %}" method="post">
+  {% csrf_token %}
+  <input name="comment" placeholder="Description">
+  <button id="bt_create_api_key" type="submit">Create</button>
+</form>
+{% endif %}
+{% endblock %}

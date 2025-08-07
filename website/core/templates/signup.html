@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+  <h2>Sign up</h2>
+  <form method="post" id="signup_form">
+    <div class="ui inverted segment">
+      <div class="ui inverted mini form">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="fifteen wide field">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+              <small style="color: grey">{{ field.help_text|safe }}</small>
+            {% endif %}
+            {% for error in field.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+        {% endfor %}
+        <button type="submit" class="ui small positive button">Sign up</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}

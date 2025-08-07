@@ -1,0 +1,6 @@
+cmake_minimum_required (VERSION 3.2)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "-Wall -pedantic")
+add_subdirectory(lib/TcpServer/TcpServer)
+add_subdirectory(lib/uWebSockets)
+add_subdirectory(relayserver)

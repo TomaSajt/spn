@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block css %}
+  <style>
+    #background_2 { display:none; }
+    #snake { display:none; }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div id="stage" class="fullwindow" style="background-color:#00000080">
+    <div id="followmsg">
+      <span>
+        Following <span></span>.
+        Click here to stop.
+      </span>
+    </div>
+    <table id="bot_stats">
+      <thead>
+        <tr>
+          <th>Snake</th>
+          <th>mass</th>
+          <th>natural</th>
+          <th>carrion</th>
+          <th>hunted</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+{% endblock %}
+
+{%  block js %}
+  {% include "visualization/js.html" %}
+
+  <script>
+    let game = new Game(assets, strategy, document.getElementById('stage'), function() {
+        game.Run();
+    });
+
+    window.onresize = function()
+    {
+        game.vis.Resize();
+    };
+  </script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Buildlogs - Schlangenprogrammiernacht 2019</title>
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static "ide/ide.css" %}" />
+{% endblock %}
+
+{% block content %}
+<pre>
+Compilation state: {{ snake.compile_state }}
+{{ snake.build_log }}
+</pre>
+{% endblock %}

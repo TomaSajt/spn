@@ -1,0 +1,22 @@
+{% load static %}
+<script src="{% static "visualization/lib/pixi-5.3.5.min.js" %}"></script>
+<script src="{% static "visualization/lib/pixi-viewport-3.4.1.js" %}"></script>
+<script src="{% static "visualization/lib/websocket/reconnecting-websocket.min.js" %}"></script>
+<script src="{% static "visualization/ParticleGeoMap.js" %}"></script>
+<script src="{% static "visualization/ObjectPool.js" %}"></script>
+<script src="{% static "visualization/SnakeSegment.js" %}"></script>
+<script src="{% static "visualization/Snake.js" %}"></script>
+<script src="{% static "visualization/FoodSprite.js" %}"></script>
+<script src="{% static "visualization/SimpleDirectionSnakeMoveStrategy.js" %}"></script>
+<script src="{% static "visualization/BotMoveHeadMoveStrategy.js" %}"></script>
+<script src="{% static "visualization/GameVisualization.js" %}"></script>
+<script src="{% static "visualization/Game.js" %}"></script>
+<script>
+    let assets = {
+      'body.png': '{% static "visualization/assets/body.png" %}',
+      'food.png': '{% static "visualization/assets/food.png" %}',
+      'head.png': '{% static "visualization/assets/head.png" %}',
+  };
+  //let strategy = new SimpleDirectionSnakeMoveStrategy();
+  let strategy = new BotMoveHeadMoveStrategy();
+</script>

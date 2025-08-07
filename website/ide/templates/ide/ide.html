@@ -1,0 +1,115 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>IDE - Schlangenprogrammiernacht 2019</title>
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static "ide/ide.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "ide/tabs.css" %}" />
+{% endblock %}
+
+{% block content %}
+<form id="snake_edit_form" method="post">
+  {% csrf_token %}
+  <input type="hidden" id="programming_language" name="programming_language" value="{{ snake.programming_language.id }}" />
+  <textarea id="code" name="code">{{ snake.code }}</textarea>
+</form>
+
+<div id="ide" class="fullwindow">
+  <div id="editor"></div>
+  <div id="sidebar" class="tab_view">
+    <div id="preview"></div>
+    <div id="persistent_memory">
+      <div>
+        <button id="refresh_persistent_memory">Refresh</button>
+        <button id="persistent_data_download">Download</button>
+        <input id="persistent_data_file" type="file" style="display:none">
+        <button id="persistent_data_upload">Upload</button>
+        <button id="persistent_data_clear">Delete</button>
+      </div>
+      <pre id="hexdump"></pre>
+    </div>
+  </div>
+  <div id="tools">
+    <div id="toolbar">
+      <select id="sel_programming_language" title="Choose a programming language. Your latest code in this language will be loaded. If you did not write any code in this language yet, an example will be loaded.">
+        {% for lang in programming_languages %}
+          {% if lang.id == snake.programming_language.id %}
+            <option value="{{ lang.slug }}" selected>{{ lang.readable_name }}</option>
+          {% else %}
+            <option value="{{ lang.slug }}">{{ lang.readable_name }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+      <button id="bt_run" title="Ctrl+R">run</button>
+      <button id="bt_restart">restart</button>
+      <button id="bt_stop">stop</button>
+      <button id="bt_save" title="Ctrl+S">save</button>
+      <button id="bt_save_as" title="Ctrl+Shift+S">save as</button>
+      <button id="bt_load" title="Ctrl+O">load</button>
+      <button id="bt_disable_preview">disable live view</button>
+      <button id="bt_enable_preview" style="display:none">enable live view</button>
+    </div>
+  </div>
+  <div id="logviews" class="tab_view">
+    <div id="build_log">
+    </div>
+    <div id="log"></div>
+  </div>
+  <div id="logtabs" class="tab_bar">
+    <button id="show_build_output">build output</button>
+    <button id="show_log_output">log output</button>
+  </div>
+  <div id="sidebartabs" class="tab_bar">
+    <button id="bt_preview">Live View</button>
+    <button>Memory</button>
+  </div>
+</div>
+
+<div class="modal">
+  <div id="safe_as_dialog">
+    <header>save current version as</header>
+    <div class="main">
+      <label for="save_as_title">Title:</label>
+      <input id="save_as_title">
+    </div>
+    <footer>
+      <button class="bt_ok">Save</button>
+      <button class="bt_cancel">Cancel</button>
+    </footer>
+  </div>
+</div>
+
+<div class="modal">
+  <div id="load_dialog">
+    <header>load previous version</header>
+    <div class="main">
+      <div class="list"></div>
+    </div>
+    <footer>
+      <button class="bt_ok">Load</button>
+      <button class="bt_cancel">Cancel</button>
+    </footer>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+  let snake_title = "{{ snake.comment | default:"" }}";
+  let snake_id = {{ snake.id | default:"null" }};
+  let snake_follow_name = "{{ snake.user.username }}";
+  let viewer_key = "{{ profile.viewer_key }}";
+  let programming_language = "{{ snake.programming_language.id | default:"null" }}";
+  let editor_mode = "{{ snake.programming_language.editor_mode | default:"text" }}";
+  let csrftoken = $("[name=csrfmiddlewaretoken]").val();
+</script>
+<script src="{% static "ide/ace/src-noconflict/ace.js" %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static "ide/tabs.js" %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static "ide/hexy.js" %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static "ide/ide.js" %}" type="text/javascript" charset="utf-8"></script>
+{% include "visualization/js.html" %}
+{% endblock %}
