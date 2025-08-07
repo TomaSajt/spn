@@ -23,16 +23,16 @@ class Environment
 {
 	public:
 		static constexpr const char* ENV_MYSQL_HOST = "MYSQL_HOST";
-		static constexpr const char* ENV_MYSQL_HOST_DEFAULT = "localhost";
+		static constexpr const char* ENV_MYSQL_HOST_DEFAULT = "localhost"; // set to unix:///path/to/unix.sock to use unix sockets
 
 		static constexpr const char* ENV_MYSQL_USER = "MYSQL_USER";
-		static constexpr const char* ENV_MYSQL_USER_DEFAULT = "gameserver";
+		static constexpr const char* ENV_MYSQL_USER_DEFAULT = "spn-usr";
 
 		static constexpr const char* ENV_MYSQL_PASSWORD = "MYSQL_PASSWORD";
-		static constexpr const char* ENV_MYSQL_PASSWORD_DEFAULT = "gameserver";
+		static constexpr const char* ENV_MYSQL_PASSWORD_DEFAULT = "spn-usr-pass";
 
 		static constexpr const char* ENV_MYSQL_DB = "MYSQL_DB";
-		static constexpr const char* ENV_MYSQL_DB_DEFAULT = "gameserver";
+		static constexpr const char* ENV_MYSQL_DB_DEFAULT = "spn-db";
 
 		static const char* GetDefault(const char* env, const char* defaultValue)
 		{
