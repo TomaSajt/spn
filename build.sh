@@ -15,15 +15,22 @@ pushd relayserver
 ./make.sh -j4
 popd
 
-header Setting up Django virtual environment and applying migrations
+header Setting up Django environment and applying migrations
 pushd website
-if [ ! -e env ]; then
-	python3 -m venv env
+
+if [[ "$USE_VENV" == "1" ]]; then
+    if [ ! -e env ]; then
+        python3 -m venv env
+    fi
+    source env/bin/activate
+    pip install -r requirements.txt
 fi
 
-source env/bin/activate
-pip install -r requirements.txt
 ./manage.py migrate
 ./manage.py loaddata core/fixtures/ProgrammingLanguage.json
-deactivate
+
+if [[ "$USE_VENV" == "1" ]]; then
+    deactivate
+fi
+
 popd
