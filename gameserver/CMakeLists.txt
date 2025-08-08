@@ -60,8 +60,6 @@ include_directories(
 	lib/msgpack-c/include/
 	lib/TcpServer/TcpServer/include/
 	docker4bots/spn_cpp_base/spn_cpp_framework/src/
-
-	/usr/include/jdbc/  # FIXME: autodetect
 	)
 
 add_executable(

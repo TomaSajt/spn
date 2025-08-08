@@ -17,5 +17,4 @@ mkShell {
     ]))
     tmux
   ];
-  env.NIX_CFLAGS_COMPILE = "-I${lib.getDev libmysqlconnectorcpp}/include/jdbc";
 }

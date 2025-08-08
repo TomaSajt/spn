@@ -11,8 +11,6 @@ with (import <nixpkgs> { });
       libmysqlconnectorcpp
     ];
 
-    env.NIX_CFLAGS_COMPILE = "-I${lib.getDev libmysqlconnectorcpp}/include/jdbc";
-
     installPhase = ''
       install -Dm755 GameServer -t $out/bin/
     '';

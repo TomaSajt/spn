@@ -22,9 +22,9 @@
 #include <istream>
 #include <algorithm>
 #include <memory>
-#include <mysql_connection.h>
-#include <cppconn/driver.h>
-#include <cppconn/prepared_statement.h>
+#include <jdbc/mysql_connection.h>
+#include <jdbc/cppconn/driver.h>
+#include <jdbc/cppconn/prepared_statement.h>
 
 #include <ipc_format.h>
 
